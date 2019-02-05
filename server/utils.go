@@ -43,34 +43,34 @@ func getBucket(accessKey, secretKey, bucket, endpoint string) (*s3.Bucket, error
 		return nil, err
 	}
 
-	var EUWestWithoutHTTPS = aws.Region{
-		Name:                 "eu-west-1",
-		EC2Endpoint:          "https://ec2.eu-west-1.amazonaws.com",
-		S3Endpoint:           endpoint,
-		S3BucketEndpoint:     "",
-		S3LocationConstraint: true,
-		S3LowercaseBucket:    true,
-		SDBEndpoint:          "https://sdb.eu-west-1.amazonaws.com",
-		SESEndpoint:          "https://email.eu-west-1.amazonaws.com",
-		SNSEndpoint:          "https://sns.eu-west-1.amazonaws.com",
-		SQSEndpoint:          "https://sqs.eu-west-1.amazonaws.com",
-		IAMEndpoint:          "https://iam.amazonaws.com",
-		ELBEndpoint:          "https://elasticloadbalancing.eu-west-1.amazonaws.com",
-		DynamoDBEndpoint:     "https://dynamodb.eu-west-1.amazonaws.com",
-		CloudWatchServicepoint: aws.ServiceInfo{
-			Endpoint: "https://monitoring.eu-west-1.amazonaws.com",
-			Signer:   aws.V4Signature,
-		},
-		AutoScalingEndpoint: "https://autoscaling.eu-west-1.amazonaws.com",
-		RDSEndpoint: aws.ServiceInfo{
-			Endpoint: "https://rds.eu-west-1.amazonaws.com",
-			Signer:   aws.V4Signature,
-		},
-		STSEndpoint:             "https://sts.amazonaws.com",
-		CloudFormationEndpoint:  "https://cloudformation.eu-west-1.amazonaws.com",
-		ECSEndpoint:             "https://ecs.eu-west-1.amazonaws.com",
-		DynamoDBStreamsEndpoint: "https://streams.dynamodb.eu-west-1.amazonaws.com",
-	}
+	// var EUWestWithoutHTTPS = aws.Region{
+	// 	Name:                 "eu-west-1",
+	// 	EC2Endpoint:          "https://ec2.eu-west-1.amazonaws.com",
+	// 	S3Endpoint:           endpoint,
+	// 	S3BucketEndpoint:     "",
+	// 	S3LocationConstraint: true,
+	// 	S3LowercaseBucket:    true,
+	// 	SDBEndpoint:          "https://sdb.eu-west-1.amazonaws.com",
+	// 	SESEndpoint:          "https://email.eu-west-1.amazonaws.com",
+	// 	SNSEndpoint:          "https://sns.eu-west-1.amazonaws.com",
+	// 	SQSEndpoint:          "https://sqs.eu-west-1.amazonaws.com",
+	// 	IAMEndpoint:          "https://iam.amazonaws.com",
+	// 	ELBEndpoint:          "https://elasticloadbalancing.eu-west-1.amazonaws.com",
+	// 	DynamoDBEndpoint:     "https://dynamodb.eu-west-1.amazonaws.com",
+	// 	CloudWatchServicepoint: aws.ServiceInfo{
+	// 		Endpoint: "https://monitoring.eu-west-1.amazonaws.com",
+	// 		Signer:   aws.V4Signature,
+	// 	},
+	// 	AutoScalingEndpoint: "https://autoscaling.eu-west-1.amazonaws.com",
+	// 	RDSEndpoint: aws.ServiceInfo{
+	// 		Endpoint: "https://rds.eu-west-1.amazonaws.com",
+	// 		Signer:   aws.V4Signature,
+	// 	},
+	// 	STSEndpoint:             "https://sts.amazonaws.com",
+	// 	CloudFormationEndpoint:  "https://cloudformation.eu-west-1.amazonaws.com",
+	// 	ECSEndpoint:             "https://ecs.eu-west-1.amazonaws.com",
+	// 	DynamoDBStreamsEndpoint: "https://streams.dynamodb.eu-west-1.amazonaws.com",
+	// }
 
 	var APSouth1WithoutHTTPS = aws.Region{
 		Name:                 "ap-south-1",

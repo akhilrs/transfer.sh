@@ -59,12 +59,12 @@ func getBucket(accessKey, secretKey, bucket, endpoint string) (*s3.Bucket, error
 		DynamoDBEndpoint:     "https://dynamodb.eu-west-1.amazonaws.com",
 		CloudWatchServicepoint: aws.ServiceInfo{
 			Endpoint: "https://monitoring.eu-west-1.amazonaws.com",
-			Signer:   aws.V2Signature,
+			Signer:   aws.V4Signature,
 		},
 		AutoScalingEndpoint: "https://autoscaling.eu-west-1.amazonaws.com",
 		RDSEndpoint: aws.ServiceInfo{
 			Endpoint: "https://rds.eu-west-1.amazonaws.com",
-			Signer:   aws.V2Signature,
+			Signer:   aws.V4Signature,
 		},
 		STSEndpoint:             "https://sts.amazonaws.com",
 		CloudFormationEndpoint:  "https://cloudformation.eu-west-1.amazonaws.com",
@@ -72,7 +72,36 @@ func getBucket(accessKey, secretKey, bucket, endpoint string) (*s3.Bucket, error
 		DynamoDBStreamsEndpoint: "https://streams.dynamodb.eu-west-1.amazonaws.com",
 	}
 
-	conn := s3.New(auth, EUWestWithoutHTTPS)
+	var APSouth1WithoutHTTPS = aws.Region{
+		Name:                 "ap-south-1",
+		EC2Endpoint:          "https://ec2.ap-south-1.amazonaws.com",
+		S3Endpoint:           endpoint,
+		S3BucketEndpoint:     "",
+		S3LocationConstraint: true,
+		S3LowercaseBucket:    true,
+		SDBEndpoint:          "https://sdb.ap-south-1.amazonaws.com",
+		SESEndpoint:          "https://email.ap-south-1.amazonaws.com",
+		SNSEndpoint:          "https://sns.ap-south-1.amazonaws.com",
+		SQSEndpoint:          "https://sqs.ap-south-1.amazonaws.com",
+		IAMEndpoint:          "https://iam.amazonaws.com",
+		ELBEndpoint:          "https://elasticloadbalancing.ap-south-1.amazonaws.com",
+		DynamoDBEndpoint:     "https://dynamodb.ap-south-1.amazonaws.com",
+		CloudWatchServicepoint: aws.ServiceInfo{
+			Endpoint: "https://monitoring.ap-south-1.amazonaws.com",
+			Signer:   aws.V4Signature,
+		},
+		AutoScalingEndpoint: "https://autoscaling.ap-south-1.amazonaws.com",
+		RDSEndpoint: aws.ServiceInfo{
+			Endpoint: "https://rds.ap-south-1.amazonaws.com",
+			Signer:   aws.V4Signature,
+		},
+		STSEndpoint:             "https://sts.amazonaws.com",
+		CloudFormationEndpoint:  "https://cloudformation.ap-south-1.amazonaws.com",
+		ECSEndpoint:             "https://ecs.ap-south-1.amazonaws.com",
+		DynamoDBStreamsEndpoint: "https://streams.dynamodb.ap-south-1.amazonaws.com",
+	}
+
+	conn := s3.New(auth, APSouth1WithoutHTTPS)
 	b := conn.Bucket(bucket)
 	return b, nil
 }
